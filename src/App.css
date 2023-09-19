@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=Clicker+Script&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+body {
+  font-family: "poppins", sans-serif;
+}
+.body-flex {
+  display: flex;
+}
+nav {
+  border-right: 1px solid rgb(196, 196, 196);
+  width: 25%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(245, 245, 245);
+  z-index: 10;
+}
+/* nav .heading{
+  border: 1px solid red;
+} */
+.nav {
+  border-bottom: 3px dotted black;
+  width: 100%;
+  height: 35%;
+}
+.nav .heading {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav .heading a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 40px;
+  color: black;
+  position: relative;
+}
+.nav .heading a::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  height: 30px;
+  width: 30px;
+  border-top: 5px solid red;
+  border-left: 5px solid red;
+}
+.nav .heading a::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  height: 30px;
+  width: 30px;
+  border-bottom: 5px solid red;
+  border-right: 5px solid red;
+}
+.nav .heading a span {
+  font-family: "Clicker script", cursive;
+  font-size: 60px;
+  font-weight: bolder;
+}
+.createbtn {
+  text-decoration: none;
+  color: black;
+  height: 25%;
+  width: 100%;
+  border-bottom: 3px dotted black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.createbtn .btN {
+  border-bottom: 1px solid red;
+  text-decoration: none;
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  outline: none;
+  padding: 5px 10px;
+}
+.taskspart {
+  width: 100%;
+  height: calc(100% - (35% + 25%));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.taskspart .tasksinfo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  font-size: 110%;
+}
+.card {
+  background-color: #fffefc;
+  width: 280px;
+}
+.card .cardOptions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  border-bottom: 4px dotted gray;
+}
+.card .cardOptions .complete {
+  padding: 3px 10px;
+  margin-right: 10px;
+  background-color: #88ed23;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.card .cardOptions .edit {
+  border-radius: 20px;
+  padding: 0px 0px;
+  background-color: #ed2a23;
+  padding: 3px 10px;
+  font-weight: bold;
+  display: flex;
+  cursor: pointer;
+}
+
+.card .cardOptions .cross {
+  color: #ed2a23;
+  cursor: pointer;
+}
+.card .cardChild {
+  text-align: center;
+  border-bottom: 4px dotted gray;
+}
+.card .cardChild p:nth-child(1) span {
+  border-bottom: 2px solid black;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 35px;
+}
+.tasksSection {
+  position: relative;
+  background-color: rgb(238, 238, 238);
+  width: 75%;
+}
+.dialogBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  z-index: 10;
+  border-radius: 5px;
+  box-shadow: 0 0 3px black;
+}
+.dialogBoxActive{
+  visibility: collapse;
+  display: none;
+}
+.dialogBox span {
+  font-weight: bolder;
+  margin-bottom: 5px;
+}
+.dialogBox input{
+  width: 100%;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid gray;
+  height: 40px;
+  pointer-events: initial;
+}
+.dialogBox textarea{
+  width: 100%;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid gray;
+  min-height: 150px;
+}
+.dialogBox .colors{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.dialogBox .colors span{
+  height: 15px;
+  width: 15px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+.removeCard{
+  display: none;
+  visibility: collapse;
+}
+.popUp{
+  height: 100px;
+  width: 80%;
+  border: 2px solid rgb(255, 0, 0);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 10px;
+  background-color: rgb(255, 88, 88);
+  opacity: 1;
+  display: initial;
+  visibility: visible;
+}
+.popUp .container{
+  position: relative;
+}
+.popUp i{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+.popUp .container p{
+  text-align: center;
+  color: white;
+}
+.disactive{
+  opacity: 0;
+  visibility: collapse;
+  display: none;
+}
+.pointerEvents{
+  pointer-events: none;
+}
