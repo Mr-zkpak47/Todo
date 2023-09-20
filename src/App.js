@@ -9,7 +9,6 @@ import TodoCard from './Components/TodoCard'
 export default function App() {
   let val = 0;
   let i = 0;
-  const [editingIndex, setEditingIndex] = useState(-1);
   const [addClass, setAddClass] = useState(false)
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
@@ -65,8 +64,8 @@ export default function App() {
           <Createbtn onClick={ShowDialogBox} />
           <TasksSection Total={total} Complete={completeNumber} />
         </nav>
-        <section className='tasksSection'>
-          <div className="container" style={{ height: "100vh", overflowY: "scroll" }}>
+        <div className='tasksSection'>
+          <div className="" style={{overflowX : "hidden" }}>
             {/*   <DialogBox color1 = "red" color2="pink" color3 = "orangered" color4 = "purple" color5 = "chocolate" selectColor = {setColor} className={addClass ? "" : "dialogBoxActive"} OnCancelClick={RemoveDialogBox} OnAddClick={OnAddClick} onChange={onChange} Title={title} onDescriptionChange={onDescriptionChange} Description={description} />
            */}
             <div className={addClass ? "dialogBox container p-2 " : `dialogBox container p-2 dialogBoxActive`} id="Dialog">
@@ -124,9 +123,10 @@ export default function App() {
             <div className="row">
               {tasks.map((task, index) => {
                 return (task.title !== "" && task.description !== "" &&
-                  <div className={"col justify-content-center d-flex"} key={index}>
+                  <div className={"col justify-content-center d-flex mt-5"} key={index}>
                     <TodoCard complete={complete} completeText={completeText} 
                     setCompleteText={setCompleteText} setComplete={setComplete}
+                    setTitle = {setTitle}
                      Title={task.title} Context={task.description} bgColor={task.color} removeTask={() => {
                       removeTask(index);
                       setCompleteNumber(completeNumber - 1)
@@ -143,7 +143,7 @@ export default function App() {
               }
             </div>
           </div>
-        </section>
+        </div>
       </section>
     </>
   )

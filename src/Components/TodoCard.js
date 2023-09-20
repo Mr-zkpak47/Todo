@@ -40,15 +40,17 @@ export default function TodoCard(props) {
 import React, { useState } from 'react';
 
 export default function TodoCard(props) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedTitle, setEditedTitle] = useState(props.Title);
+  const [editedContext, setEditedContext] = useState(props.Context);
+  const [editbool,setEditbool] = useState(true)
+
   const [complete, setComplete] = useState("Complete")
   const Complete = () => {
     setComplete("Completed")
       props.setCompleteNumber(props.completeNumber + 1)
       console.log(props.data)
   }
-  const [isEditing, setIsEditing] = useState(false);
-  const [editedTitle, setEditedTitle] = useState(props.Title);
-  const [editedContext, setEditedContext] = useState(props.Context);
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -57,9 +59,11 @@ export default function TodoCard(props) {
   const handleSaveClick = () => {
     // Update the task with the edited values
     // For simplicity, you can update the local state.
+    setEditbool(false)
     setEditedTitle(editedTitle);
     setEditedContext(editedContext);
     setIsEditing(false);
+    console.log(editedTitle)
   };
 
   return (
@@ -69,7 +73,7 @@ export default function TodoCard(props) {
           <div className="flex-1 py-2 px-2 d-flex">
             {isEditing ? (
               <>
-                <button className="btn btn-success" onClick={handleSaveClick}>
+                <button className="btn btn-success me-2" onClick={handleSaveClick}>
                   Save
                 </button>
                 <button className="btn btn-secondary" onClick={() => setIsEditing(false)}>
@@ -99,16 +103,18 @@ export default function TodoCard(props) {
                 type="text"
                 value={editedTitle}
                 onChange={(e) => setEditedTitle(e.target.value)}
-              />
+                className='my-3'
+                />
               <textarea
                 value={editedContext}
                 onChange={(e) => setEditedContext(e.target.value)}
+                className='my-3'
               />
             </>
           ) : (
             <>
-              <p><span>{props.Title}</span></p>
-              <p className="task px-3 my-3">{props.Context}</p>
+              <p><span>{editbool?props.Title:editedTitle}</span></p>
+              <p className="task px-3 my-3">{editbool?props.Context:editedContext}</p>
             </>
           )}
         </div>

@@ -4,6 +4,9 @@ body {
 }
 .body-flex {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 nav {
   border-right: 1px solid rgb(196, 196, 196);
@@ -39,6 +42,26 @@ nav {
   font-size: 40px;
   color: black;
   position: relative;
+}
+.nav .heading a::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  height: 30px;
+  width: 30px;
+  border-top: 5px solid red;
+  border-left: 5px solid red;
+}
+.nav .heading a::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  height: 30px;
+  width: 30px;
+  border-bottom: 5px solid red;
+  border-right: 5px solid red;
 }
 .nav .heading a::before {
   content: "";
@@ -151,6 +174,8 @@ nav {
   position: relative;
   background-color: rgb(238, 238, 238);
   width: 75%;
+  height: 100vh;
+  overflow-y: scroll;
 }
 .dialogBox {
   position: absolute;
@@ -167,7 +192,7 @@ nav {
   border-radius: 5px;
   box-shadow: 0 0 3px black;
 }
-.dialogBoxActive{
+.dialogBoxActive {
   visibility: collapse;
   display: none;
 }
@@ -175,7 +200,7 @@ nav {
   font-weight: bolder;
   margin-bottom: 5px;
 }
-.dialogBox input{
+.dialogBox input {
   width: 100%;
   border-radius: 5px;
   outline: none;
@@ -183,62 +208,136 @@ nav {
   height: 40px;
   pointer-events: initial;
 }
-.dialogBox textarea{
+.dialogBox textarea {
   width: 100%;
   border-radius: 5px;
   outline: none;
   border: 1px solid gray;
   min-height: 150px;
 }
-.dialogBox .colors{
+.dialogBox .colors {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
 }
-.dialogBox .colors span{
+.dialogBox .colors span {
   height: 15px;
   width: 15px;
   border: 1px solid black;
   border-radius: 50%;
 }
-.removeCard{
+.removeCard {
   display: none;
   visibility: collapse;
 }
-.popUp{
+.popUp {
   height: 100px;
   width: 80%;
   border: 2px solid rgb(255, 0, 0);
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   border-radius: 10px;
   background-color: rgb(255, 88, 88);
   opacity: 1;
   display: initial;
   visibility: visible;
 }
-.popUp .container{
+.popUp .container {
   position: relative;
 }
-.popUp i{
+.popUp i {
   position: absolute;
   top: 5px;
   right: 5px;
   cursor: pointer;
 }
-.popUp .container p{
+.popUp .container p {
   text-align: center;
   color: white;
 }
-.disactive{
+.disactive {
   opacity: 0;
   visibility: collapse;
   display: none;
 }
-.pointerEvents{
+.pointerEvents {
   pointer-events: none;
+}
+@media screen and (max-width: 1000px) {
+  .body-flex {
+    flex-direction: column;
+  }
+  nav {
+    flex-direction: row;
+    justify-content: space-between;
+    height: 70px;
+    width: 100%;
+  }
+  .nav {
+    height: 100px;
+    width:auto;
+    border-bottom: none;
+    margin-left: 50px;
+  }
+  .nav .heading a {
+    font-size: 20px;
+  }
+  .nav .heading a::before {
+    content: "";
+  }
+  .nav .heading a span {
+    font-size: 40px;
+  }
+
+  .nav .heading a::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 0px;
+    width: 0px;
+    border-top: none;
+    border-left: none;
+  }
+  .nav .heading a::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height:0px;
+    width:0px;
+    border-bottom: none;
+    border-right: none;
+  }
+  .taskspart{
+    display: none;
+    opacity: 0;
+    visibility: collapse;
+  }
+  .createbtn{
+    width: auto;
+    margin-right: 50px;
+    border-bottom: none;
+  }
+  .createbtn .btN{
+    border-bottom: none;
+    gap: 5px;
+    background-color: #ed2a23;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+  }
+  .tasksSection{
+    width: 100%;
+    height:calc(100vh - 70px);
+    overflow-y: scroll;
+  }
+  .tasksSection .container{
+    height:350px;
+    overflow-x: hidden;
+  }
 }
